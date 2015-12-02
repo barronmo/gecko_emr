@@ -1,0 +1,32 @@
+4 month well child visit
+
+%s %s who comes in for well child visit.  Feeding, sleeping, BM and UOP are all normal.  Parents have no concerns today.
+
+Development:
+-has good head control
+-responds to affection
+-smiles spontaneously
+-vocalizing/babbling with some expression
+-indicates pleasure and displeasure
+-beginning to roll and reach for objects
+
+Exam
+%s
+gen: alert, active
+head: no positional skull deformity
+CV: RRR, no murmurs; femoral pulses normal
+lungs: CTA bilat
+neuro: regards face, nl tone in all 4 extremities; symmetric movements
+MS: no hip clicks
+GU: normal
+eyes: normal red reflex bilat, no strabismus, normal lateral gaze
+skin: pink, warm; no rashes or bruises
+
+A: well child
+
+P: continue routine care.  I counseled parents on the following:
+-safety: babies can roll suddenly, be careful about hot water, 'back to sleep' to prevent SIDS
+-feeding: continue with formula or breastmilk, should wait to introduce foods
+-reading: it's a good idea to start reading to baby
+
+Follow up at 6 months of age.

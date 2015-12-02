@@ -1,0 +1,18 @@
+Newborn wt check
+
+%s %s who comes in for weight check.  Feeding, sleeping, BM and UOP are all normal.  Family is adjusting well to the new baby.
+
+Exam
+%s
+gen: alert, active
+neuro: regards face, nl tone in all 4 extremities, pos Moro
+skin: pink, warm
+
+A: well child
+
+P: continue routine care.  I counseled parents on the following:
+-safety: babies can roll suddenly, be careful about hot water, 'back to sleep' to prevent SIDS
+-feeding: babies know how much and how often they should eat
+-reading: it's a good idea to start reading to baby
+
+Follow up at 2 months of age.

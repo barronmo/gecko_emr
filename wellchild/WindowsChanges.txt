@@ -1,0 +1,27 @@
+-downloaded mySQLdb and ReportLab libraries
+-changed sys.path.append to folder for program in Docs and Setting
+-changged location of image files
+-need to change where well child templates are kept
+-added 'style=wx.TE_PROCESS_ENTER' to comboboxes in AddProblemDialog and AddMed classes
+-MySQL queries were changed in several places (PMH) so that they had for 'UPDATE %s SET %s = "%s" WHERE...' so that full quotes were around inserted text rather than the entire string
+-change file locations for Meds.OnPrintMeds for the script.html file
+-in Selectable change the folder locations to reflect Windows path for patient folders as well as several changes from / to \.
+-in Meds.OnpRintMed changed the path to include \\ vice\. (this may not be necessary)
+-changed time format to be just numbers rather than include colons, eg %H%M%S gives 133835 rather than 13:38:35pm.  Windows couldn't find the file if it included colons.
+-changed file format on EMR_utilities.notePDF to Windows format
+-changed 'date' field in 'notes' table to DATETIME from DATE; this allow the timestamp to be stored with each note
+-recoded Notes.OnPrint
+-changed file location/format for Windows in several ToDo functions
+-added PrintAllNotes to EMR_notebook
+-changed all 'archive' values to '0' from 'NULL'
+-copied Calendar control for ToDo.AddToDo box
+-changed EMR_formats.GetVitals from %d to all %s
+
+
+bugs:
+-vitals dates in wrong format
+-notes dates saved truncated; field may not be long enough
+-when removing a problem get error msg saying 'couldn't retrieve information about list control item 6'
+-medication lists are not showing up but are in the database; the reason is that the query looks for records where 'archive' = 0 but the records are most 'NULL' unless changed manually.  I used update query to change all to '0'.
+-if you enter an allergy reason with an apostrophe you get an error because it messes up the SQL query which is enclosed in quotes in the code
+-when saving a note if there are " anywhere I get a SQL error and it doesn't save

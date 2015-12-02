@@ -1,0 +1,56 @@
+3 year well child visit
+
+%s %s who comes in for well child visit.  
+
+Concerns: healthy
+
+Medications: none
+
+Diet/Eating Habits: eats a variety of food, not too many sweets, no soda
+
+Allergies: none
+
+Behavior: normal for 3 year old
+
+Toilet Training: both day and night
+
+Language/Hearing: speech is mostly understood by parents; no concerns about hearing
+
+Social Relationships: good
+
+Development:
+-balances on one foot
+-jumps in place
+-pedals cycle
+-copies circle and cross
+-gives first and last name, age and gender
+-buttons clothing
+-dresses with supervision
+-no separation anxiety
+
+Exam:
+%s
+Skin: no lesions, pink
+Head: symmetric, scalp normal
+Eyes: EOMI, no strabismus
+Ears: TMs clear
+Mouth: dentition good
+Throat: pharynx normal
+Lungs: clear bilat
+Heart: nl S1/S2, no murmurs
+Abd: soft, nontender
+GU: normal
+Neuro: normal strength, balance and coordination
+Back: no curvature
+
+Lead level: normal
+Hb: normal
+
+Assessment: well child
+
+Plan: 
+-discussed diet and exercise, limitation of screen time
+-emphasized reading to child
+-time out for discipline reviewed
+-suggested regular visit with the dentist
+

@@ -1,0 +1,66 @@
+6-7 year old well child visit
+
+%s %s who comes in for well child visit.  Sleeping, nutrition, activity, and peer involvement are normal.  
+Parents have no concerns today.  There are not chronic illnesses.
+
+Development:
+-dresses without supervision
+-plays board and card games
+-appropriate emotional expression
+-names 2 opposites
+-speech all understandable
+-brushes teeth without help
+-attends > 30 minutes
+-reads simple words (emerging)
+
+Fine/Gross Motor skills:
+-hops
+-draws person with 3 parts (head, arms, legs)
+-prints some letters (emerging)
+-ties shoes (emerging)
+-jumps over obstables (emerging)
+
+Hearing:
+-no parental concerns about hearing
+-no family history of hearing disorders
+-no recurrent otitis media
+-says all sounds correctly except s and th
+
+Vision:
+-no parental concerns about vision
+-no family history of visual problems
+-no eye injuries
+
+Dental:
+-has had dental appt in last 6 months
+-parents supervise brushing and flossing
+
+
+Exam
+%s
+gen: alert, active
+head: atraumatic, nl size and shape
+Ears: normal canal and TMs
+Nose: no rhinorrhea
+Oropharynx: tonsils and mucosa normal
+Neck: no LAD, thyroid normal, supple
+CV: RRR, no murmurs, pulses normal
+lungs: CTA bilat
+abd: soft, nontender
+neuro: speech understandible, nl tone in all 4 extremities; balances on one foot
+eyes: no strabismus, normal lateral gaze, PERRL, normal tracking
+GU: normal
+skin: pink, warm; no rashes or bruises
+back: no curvature
+MS: joints normal
+
+A: well child
+
+P: continue routine care.  I counseled parents on the following:
+-safety: wearing seat belts and bike helmets
+-nutrition: present a variety of foods and avoid too many sweets/carbs
+-reading: read to child 15 minutes daily
+-exercise: limit screen time and encourage play outdoors
+-discipline: answered questions regarding home behavior shaping- consistent rules, rewards and chores
+
+

@@ -1,0 +1,33 @@
+9-12 year well child visit
+
+%s %s who comes in for well child visit.  
+
+Pt and parents have no concerns at this time.  School is going OK.  Active with friends.  Getting along with family and teachers.  Eats a variety of foods.  Watches > 1 hour of TV per day.
+
+Development: 
+-reading and math are at grade level
+-grades are good
+-talents and interests are: 
+-homework is done in quiet place without distractions
+
+Exam
+%s
+HENT: normal dentition
+Back: no scoliosis
+Vision: R 20/20, L 20/30
+CV: RRR, no murmurs
+Lungs: CTA bilat
+Abd: soft, NT
+skin: pink, warm
+
+A: well child
+
+P:
+-school physical form filled out; cleared for all activities
+-discuussed need for adequate sleep, watching < 1 hour TV per day, and getting plenty of physical activity
+-counseled about avoiding ETOH and drugs
+-injury prevention: discussed seat belts, bike helmets, risk taking behavior
+-nutrition: limit soda and juices, eat fruits and vegetables, watch out for high calorie foods
+-encouraged good dental hygeine
+-encouraged parents to talk about sex, puberty changes
+

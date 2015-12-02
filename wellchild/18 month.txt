@@ -1,0 +1,51 @@
+18 month well child visit
+
+%s %s who comes in for well child visit.  Plays/interacts with parents/siblings without problems.
+
+Concerns: healthy
+
+Medications: none
+
+Diet/Eating Habits: eats a variety of food
+
+Allergies: none
+
+Behavior: normal for 18 month old
+
+Development: 
+-runs
+-throws ball
+-walks backwards
+-scribbles with crayon
+-stacks blocks
+-saying 15-20 words 
+-says own name
+-names objects/body parts
+-uses spoon/cup without problem
+-follows simple directions
+
+%s
+Gen: alert and active, no obvious distress
+CV: RRR, no murmurs, normal S1 and S2
+Lungs: clear to auscultation, bilat, normal resp effort
+Abd: soft, nontender, no guarding or rebound
+Neuro: walks, climbs step, normal tone
+MS: no deformities, normal hip ROM
+HENT: oropharynx normal, good dentition
+Eyes: sclera clear, pos RR
+GU: both descended
+skin: normal, no lesions or rashes
+
+Assessment: normal 2 year old
+
+Plan: -discussed reading to child
+-discussed importance of brushing teeth
+-discussed limiting screen time
+-discussed healthy diet, eating variety of foods
+-discussed safety: climbing/falls, danger of open toilets, supervision in the tub, car seats
+-discussed giving opportunities to explore
+
+
+
+
+

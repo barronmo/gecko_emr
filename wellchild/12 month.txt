@@ -1,0 +1,40 @@
+12 month well child visit
+
+%s %s who comes in for well child visit.  Feeding, sleeping, BM and UOP are all normal.  Parents have no concerns today.
+
+Development:
+-walks holding something
+-pulls to standing and stands alone briefly
+-bangs cubes together
+-pincer grasp
+-scribbles spontaneously
+-vocalizes vowel sounds
+-says mama, dada plus at least 2 other words
+-drinks from cup
+-comforted by parents
+-feeds self
+
+Exam
+%s
+gen: alert, active
+head: AF firm
+CV: RRR, no murmurs
+lungs: CTA bilat
+abd: soft, nontender, no masses
+neuro: resists exam, nl tone in all 4 extremities; symmetric movements
+eyes: normal red reflex bilat, no strabismus
+ears: TMs normal
+mouth: has several teeth
+GU: normal
+skin: pink, warm; no rashes or bruises
+
+
+A: well child
+
+P: continue routine care.  I counseled parents on the following:
+-safety: watch out for stairs and climbing behaviors; check for baby-level hazards; child proof home
+-feeding: can switch to cow's milk, allow to feed herself
+-reading: it's a good idea to start reading to baby, avoid TV
+-dental: emphasized brushing teeth
+
+Follow up at 15 months of age.

@@ -1,0 +1,63 @@
+import wx
+import EMR_utilities
+
+class Vitals(wx.Panel):
+    def __init__(self, parent, ID, PtID):
+	wx.Panel.__init__(self, parent, ID)
+	#I need some way to set the max size for the grid
+	self.PtID = PtID
+	self.colLabels = ['','','Weight','Height','HC', 'Systolic','Diastolic','Pulse','Resp','O2 Sat','Temp','Date']
+	self.qry = "SELECT * FROM vitals WHERE patient_ID = %s;" % (str(self.PtID))
+	self.vitals = EMR_utilities.getAllData(self.qry)
+	self.textctrl = {}
+	self.vitalsgrid = EMR_utilities.myGrid(self, -1, self.PtID, self.colLabels, self.vitals, hide=[0,1])
+	self.vitalsbox = wx.BoxSizer(wx.HORIZONTAL)
+	self.vitalsbox.Add(self.vitalsgrid, 1, wx.EXPAND |wx.ALL, 20)
+	self.mainsizer = wx.BoxSizer(wx.VERTICAL)
+	border = wx.StaticBox(self, -1, 'Add Vitals')
+	f = wx.Font(10, wx.DEFAULT, wx.NORMAL, wx.LIGHT)
+	border.SetFont(f)
+	addvitals = wx.StaticBoxSizer(border, wx.HORIZONTAL)
+	controls = [('Wt', 40), ('Ht', 30), ('HC', 30), ('Temp', 40), ('SBP', 40), ('DBP', 40), ('Pulse', 40), ('Resp', 30), \
+		    ('O2 Sats', 30), ('Date', 80)]
+	for label, size in controls:
+	    EMR_utilities.buildOneTextCtrl(self, label, size, addvitals)
+	self.textctrl['Date'].SetValue(str(EMR_utilities.dateToday()))
+	self.mainsizer.Add(self.vitalsbox)
+	self.mainsizer.Add(addvitals, 0, wx.ALL, 20)
+	buttonAdd = EMR_utilities.buildOneButton(self, self, 'Update Vitals', self.UpdateVitals)
+	buttonDel = EMR_utilities.buildOneButton(self, self, 'Delete Vitals', self.DeleteVitals)
+	self.mainsizer.Add(buttonAdd, 0, wx.ALIGN_LEFT|wx.ALIGN_TOP|wx.LEFT|wx.TOP, 20)
+	self.mainsizer.Add(buttonDel, 0, wx.ALIGN_LEFT|wx.ALIGN_TOP|wx.LEFT|wx.TOP, 20)
+	self.SetSizer(self.mainsizer)
+
+    def UpdateVitals(self, event):
+	updateqry = 'INSERT INTO vitals SET wt = "%s", ht = "%s", hc = "%s", temp = "%s", sBP = "%s", dBP = "%s", \
+	      pulse = "%s", resp = "%s", sats = "%s", vitals_date = "%s", patient_ID = %s;' % (self.textctrl['Wt'].GetValue(), 
+	      self.textctrl['Ht'].GetValue(), self.textctrl['HC'].GetValue(), self.textctrl['Temp'].GetValue(), 
+	      self.textctrl['SBP'].GetValue(), self.textctrl['DBP'].GetValue(), self.textctrl['Pulse'].GetValue(), 
+	      self.textctrl['Resp'].GetValue(), self.textctrl['O2 Sats'].GetValue(), self.textctrl['Date'].GetValue(), 
+	      self.PtID)
+	EMR_utilities.updateData(updateqry)
+	self.vitals = EMR_utilities.getAllData(self.qry)
+	self.vitalsgrid.Destroy()
+	self.vitalsgrid = EMR_utilities.myGrid(self, -1, self.PtID, self.colLabels, self.vitals, hide=[0,1])
+	self.vitalsbox.Add(self.vitalsgrid, 1, wx.EXPAND |wx.ALL, 20)
+	data = EMR_utilities.getData("SELECT dob, sex FROM demographics WHERE patient_ID = %s;" % self.PtID)
+	if data[1] == 'male':
+	    sex = 'boy'
+	else: sex = 'girl'
+	s = data[0].strftime("%B") + ',' + str(data[0].day) + ',' + str(data[0].year) + ',' + sex + ',' + \
+		self.textctrl['Ht'].GetValue() + ',' + self.textctrl['Wt'].GetValue() + ',' + self.textctrl['HC'].GetValue()
+	with open('/home/mb/Dropbox/iMacros/Datasources/growth.txt', 'w') as f:
+	    f.write(s)
+	self.Layout()			#this line from C M and Robin Dunn on the mailing list; see 20 Feb 08 email
+	for items in self.textctrl:
+	    self.textctrl[items].SetValue("")
+	
+
+    def DeleteVitals(self, event):
+	deleteqry = 'DELETE FROM vitals WHERE vitals_number = %s;' % \
+		    (self.vitalsgrid.GetCellValue(self.vitalsgrid.GetSelectedRows()[0], 0))
+	EMR_utilities.updateData(deleteqry)
+	self.vitalsgrid.DeleteRows(pos=self.vitalsgrid.GetSelectedRows()[0], numRows=1)

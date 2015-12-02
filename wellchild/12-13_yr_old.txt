@@ -1,0 +1,60 @@
+12-13 year well child visit
+
+%s %s who comes in for well child visit.  
+
+Pt and parents have the following concerns: .  Interval history is negative.  There are no chronic illnesses.  
+
+No known high risk behaviors such as smoking, drinking, drug use, 
+or sexual activity.  Eats a variety of foods.  Watches > 1 hour of TV per day.
+
+Development: 
+-grades are:
+-discipline issues:
+-stable sleep and appetite
+-relations with peers is normal
+-no emotional problems
+
+Fine/Gross Motor: 
+-handwriting is readable
+-involved in the following sports:
+
+Hearing:
+-no parental concerns about hearing
+-child has no complaints about hearing
+-does not listen to music at excessive level
+
+Vision:
+-no parental concerns about vision
+-child has no complaints about vision
+
+Dental:
+-has been to see the dentist in the last year, no big dental issues
+-regularly brushes teeth twice daily
+
+Exam
+%s
+General: awake, pleasant, no apparent distress
+Head: atraumatic, nl size
+Eyes: vision is 20/  in right and 20/  in left, PERRL, EOMI, no strabismus
+Ears: TMs and canals normal
+Nose: normal
+Oropharynx: tonsils normal, mucosa moist, dentition good
+Neck: supple, nontender
+Back: no scoliosis
+CV: RRR, no murmurs, nl pulses
+Lungs: CTA bilat
+Abd: soft, NT
+skin: pink, warm, no rashes
+MS: normal musculature and tone; duck walk normal
+
+A: well child
+
+P:
+-school physical form filled out; cleared for all activities
+-discussed need for adequate sleep, watching < 1 hour TV per day, and getting plenty of physical activity
+-counseled about avoiding ETOH, tobacco, drugs, sexual intercourse
+-injury prevention: discussed seat belts, bike helmets, risk taking behavior
+-nutrition: limit soda and juices, eat fruits and vegetables, watch out for high calorie foods
+-encouraged good dental hygeine
+-encouraged parents to talk about sex, puberty changes
+

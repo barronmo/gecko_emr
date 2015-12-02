@@ -1,0 +1,140 @@
+import wx
+import MySQLdb, sys, time, datetime
+import EMR_utilities
+from ObjectListView import ObjectListView, ColumnDefn, EVT_CELL_EDIT_STARTING, EVT_CELL_EDIT_FINISHED
+
+
+class Problems(wx.Panel):
+    def __init__(self, parent, id, ptID):
+	wx.Panel.__init__(self, parent, id)
+
+	self.ptID = ptID
+	problems = prob_find(ptID)
+	for items in problems:
+            items["icd"] = findICD(items["short_des"])
+	self.problist = ObjectListView(self, -1, style=wx.LC_REPORT|wx.SUNKEN_BORDER)
+	self.problist.SetColumns([
+            ColumnDefn("Problem", "left", 400, valueGetter="short_des"),
+            ColumnDefn("ICD-9 Code", "left", 150, valueGetter="icd"),
+	    ColumnDefn("First Treated", "left", 200, valueGetter="prob_date")
+            ])
+        self.problist.SetObjects(problems)
+        self.problist.cellEditMode = ObjectListView.CELLEDIT_DOUBLECLICK
+        self.problist.Bind(EVT_CELL_EDIT_STARTING, self.HandleCellEditStarting)
+        self.problist.Bind(EVT_CELL_EDIT_FINISHED, self.HandleCellEditFinished)
+            
+	leftprob = wx.BoxSizer(wx.VERTICAL)
+	rightprob = wx.BoxSizer(wx.VERTICAL)
+	mainsizer = wx.BoxSizer(wx.HORIZONTAL)
+
+	buttons = (('Add', self.OnNewProb, leftprob), ('Remove', self.OnRemProb, leftprob))
+	for label, handler, sizer in buttons:
+	    EMR_utilities.buildOneButton(self, self, label, handler, sizer)
+	clock = EMR_utilities.makeClock(self, leftprob)
+		
+	rightprob.Add(self.problist, 1, wx.EXPAND | wx.TOP, 5)
+	mainsizer.Add(leftprob, 0)
+	mainsizer.Add(rightprob, 1, wx.EXPAND)
+	self.SetSizer(mainsizer)
+	
+	
+
+    def OnNewProb(self, event):
+	 #opens dialog window with fields for new problem, does lookup based on description only, updates MySQL,
+	 #then clears the list and resets the lists with new query for problems
+	dlg = AddProblemDialog(self, -1, 'New Problem', (600, 300))
+	dlg.ProbInstance = self
+	dlg.CenterOnScreen()
+	dlg.ShowModal()
+
+
+    def OnRemProb(self, event):
+        obj = self.problist.GetSelectedObjects()
+        for items in obj:
+            qry = 'DELETE FROM problems WHERE problem_number = %s;' % items['problem_number']
+            self.problist.RemoveObject(items)
+            EMR_utilities.updateData(qry)
+	
+    def UpdateList(self):				
+	problems = prob_find(self.ptID)
+	for items in problems:
+            items["icd"] = findICD(items["short_des"])
+	self.problist.SetObjects(problems)
+	
+    def HandleCellEditStarting(self, event):
+        pass
+
+    def HandleCellEditFinished(self, event):
+        sqlstmt = 'UPDATE problems SET short_des = "%s" WHERE problem_number = %s;' \
+                  % (self.problist.GetItem(event.rowIndex, event.subItemIndex).GetText(),
+                     event.rowModel["problem_number"])
+        EMR_utilities.updateData(sqlstmt)
+
+
+def prob_find(pt_ID):
+    a = wx.GetApp()
+    cursor = a.conn.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("SELECT short_des, problem_number, prob_date FROM problems WHERE patient_ID = %s;" % (str(pt_ID)))
+    results = list(cursor.fetchall())
+    return results
+    cursor.close()
+
+def findICD(problem):
+    a = wx.GetApp()
+    cursor = a.conn.cursor()
+    cursor.execute('SELECT icd_9 FROM icd_9 WHERE disease_name = "%s";' % (problem))
+    results = cursor.fetchone()
+    return str(results).strip("'(),")
+    cursor.close()
+    
+
+class AddProblemDialog(wx.Dialog):
+    def __init__(self, parent, ID, title, size=wx.DefaultSize, pos=wx.DefaultPosition, 
+            style=wx.DEFAULT_DIALOG_STYLE, useMetal=False,):
+	wx.Dialog.__init__(self, parent, ID, title)
+
+#set the controls
+	labelDisease = wx.StaticText(self, -1, 'Problem Name')
+	self.comboDisease = wx.ComboBox(self, -1, name = '', choices = [], size = (300, -1), style=wx.TE_PROCESS_ENTER)
+	self.Bind(wx.EVT_TEXT_ENTER, self.EvtOnEnter, self.comboDisease)
+	btnOK = wx.Button(self, wx.ID_OK)
+	btnCL = wx.Button(self, wx.ID_CANCEL)
+        btnOK.SetDefault()
+	btnCL.SetDefault()
+	self.Bind(wx.EVT_BUTTON, self.OnOK, btnOK)
+	
+#set the sizers(layout)
+	box = wx.BoxSizer(wx.VERTICAL)
+	btnsizer = wx.StdDialogButtonSizer()
+	mainsizer = wx.BoxSizer(wx.VERTICAL)
+	box.Add(labelDisease)
+	box.Add(self.comboDisease)
+	btnsizer.AddButton(btnOK)
+	btnsizer.AddButton(btnCL)
+	btnsizer.Realize()
+	mainsizer.Add(box)
+	mainsizer.Add(btnsizer)
+	self.SetSizer(mainsizer)
+
+	self.comboDisease.SetFocus()
+
+    def EvtOnEnter(self, event):
+	a = wx.GetApp()
+     	cursor = a.conn.cursor()
+     	cursor.execute('SELECT disease_name FROM icd_9 WHERE disease_name LIKE "%%%s%%";' % (event.GetString()))
+     	results = cursor.fetchall()
+	cursor.close()
+	for item in results:
+		string = str(item[0])
+		self.comboDisease.Append(string.strip("(',)")) 
+
+    def OnOK(self, event):
+	a = wx.GetApp()
+	cursor = a.conn.cursor()
+	today = datetime.date.today()
+	query = 'INSERT INTO problems SET short_des = "%s", prob_date = "%s", patient_ID = "%s"' % \
+			(self.comboDisease.GetValue(), today, self.ProbInstance.ptID)
+	cursor.execute(query)
+	self.ProbInstance.UpdateList()
+	cursor.close()
+	

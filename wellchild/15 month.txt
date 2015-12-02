@@ -1,0 +1,42 @@
+15 month well child visit
+
+%s %s who comes in for well child visit.  He eats a variety of foods.  Parents have no concerns today.
+
+Development:
+-walks alone
+-stoops and recovers
+-walks backwards
+-walks up steps with help
+-scribbles with pencil
+-makes tower of 2 cubes
+-says mama, dada plus at least 2 other words
+-points to parts of body
+-removes some articles of clothing
+-drinks from cup
+-uses spoon without spilling
+-comforted by parents
+-feeds self
+
+Exam
+%s
+gen: alert, active
+head: AF firm, normal head shape, normal hair distribution
+CV: RRR, no murmurs
+lungs: CTA bilat
+abd: soft, nontender, no masses
+neuro: normal equilibrium, motor strength, coordination
+eyes: normal red reflex bilat, no strabismus
+ears: normal
+mouth: has numerous teeth
+GU: normal
+skin: pink, warm; no rashes or bruises
+
+
+A: well child
+
+P: continue routine care.  I counseled parents on the following:
+-safety: watch out for stairs and climbing behaviors; check for child-level hazards; child proof home
+-reading: it's a good idea to start reading to baby, avoid TV
+-dental: emphasized brushing teeth
+
+Follow up at 2 years old.
